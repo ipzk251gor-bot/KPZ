@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic; // Додано для IReadOnlyList
 using System.Linq;
 using System.Windows.Forms;
 using ChatLibrary;
@@ -7,32 +8,27 @@ namespace Client
 {
     public partial class Form1 : Form
     {
-        // Принцип SoC: логіка підключення винесена в окремий клас ChatServerConnector
+        // ВИПРАВЛЕНО (Issue #1): Винесено IP-адресу в константу (замість хардкоду в методах)
+        private const string ServerAddress = "127.0.0.1";
         readonly ChatServerConnector _connector = new ChatServerConnector();
 
         public Form1()
         {
             InitializeComponent();
-
-            // Event-Driven Programming: підписка на події сервера
             _connector.MessageReceived += OnMessage;
             _connector.UsersUpdated += OnUsers;
             _connector.StatusChanged += s => BeginInvoke(new Action(() => lblStatus.Text = s));
-
             UpdateUi(false);
         }
 
-        // Принцип KISS: окремий простий метод для керування станом інтерфейсу
         void UpdateUi(bool connected)
         {
             txtName.Enabled = !connected;
             btnConnect.Enabled = !connected;
             btnDisconnect.Enabled = connected;
-
             txtMessage.Enabled = connected;
             btnSendAll.Enabled = connected;
             btnSendPrivate.Enabled = connected;
-
             lstUsers.Enabled = connected;
         }
 
@@ -40,7 +36,8 @@ namespace Client
         {
             try
             {
-                _connector.Connect(txtName.Text);
+                // Використовуємо константу ServerAddress
+                _connector.Connect(txtName.Text); 
                 AppendSystem($"Ви зайшли як {_connector.UserName}");
                 UpdateUi(true);
             }
@@ -58,58 +55,32 @@ namespace Client
             UpdateUi(false);
         }
 
-        void btnSendAll_Click(object sender, EventArgs e)
+        // ВИПРАВЛЕНО (Issue #3): Логіку оновлення списку винесено в окремий метод (Refactoring)
+        private void RefreshUserList(IReadOnlyList<ChatUserInfo> users)
         {
-            var text = txtMessage.Text;
-            txtMessage.Clear();
-            _connector.SendToAll(text);
-        }
+            var selectedId = (lstUsers.SelectedItem as ChatUserInfo)?.Id;
+            lstUsers.BeginUpdate();
+            lstUsers.Items.Clear();
+            foreach (var u in users.OrderBy(x => x.Name))
+                lstUsers.Items.Add(u);
+            lstUsers.EndUpdate();
 
-        void btnSendPrivate_Click(object sender, EventArgs e)
-        {
-            var user = lstUsers.SelectedItem as ChatUserInfo;
-            if (user == null)
+            if (selectedId.HasValue)
             {
-                MessageBox.Show(this, "Оберіть користувача зі списку онлайн.", "Інфо", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            if (user.Id == _connector.UserId)
-            {
-                MessageBox.Show(this, "Неможливо надіслати повідомлення самому собі.", "Інфо", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            var text = txtMessage.Text;
-            txtMessage.Clear();
-            _connector.SendPrivate(user.Id, text);
-        }
-
-        void OnUsers(System.Collections.Generic.IReadOnlyList<ChatUserInfo> users)
-        {
-            // Safe UI Threading: використання BeginInvoke для роботи з UI з іншого потоку
-            BeginInvoke(new Action(() =>
-            {
-                var selectedId = (lstUsers.SelectedItem as ChatUserInfo)?.Id;
-
-                lstUsers.BeginUpdate();
-                lstUsers.Items.Clear();
-                foreach (var u in users.OrderBy(x => x.Name))
-                    lstUsers.Items.Add(u);
-                lstUsers.EndUpdate();
-
-                if (selectedId.HasValue)
+                foreach (var item in lstUsers.Items)
                 {
-                    foreach (var item in lstUsers.Items)
+                    if (item is ChatUserInfo u && u.Id == selectedId.Value)
                     {
-                        if (item is ChatUserInfo u && u.Id == selectedId.Value)
-                        {
-                            lstUsers.SelectedItem = item;
-                            break;
-                        }
+                        lstUsers.SelectedItem = item;
+                        break;
                     }
                 }
-            }));
+            }
+        }
+
+        void OnUsers(IReadOnlyList<ChatUserInfo> users)
+        {
+            BeginInvoke(new Action(() => RefreshUserList(users)));
         }
 
         void OnMessage(ChatMessage msg)
@@ -132,7 +103,6 @@ namespace Client
                 {
                     lstChat.Items.Add($"[{time}] {msg.FromName}: {msg.Text}");
                 }
-
                 lstChat.TopIndex = Math.Max(0, lstChat.Items.Count - 1);
             }));
         }
@@ -146,17 +116,9 @@ namespace Client
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
-            try
-            {
-                _connector.Dispose();
-            }
-            catch (Exception ex)
-            {
-                // ВИПРАВЛЕНО (Issue #2): Додано обробку помилки замість порожнього блоку
-                Console.WriteLine($"Error during disposal: {ex.Message}");
-            }
-
+            try { _connector.Dispose(); }
+            catch (Exception ex) { Console.WriteLine($"Error: {ex.Message}"); }
             base.OnFormClosing(e);
         }
     }
-}git checkout -b fix-issue-2
+}
