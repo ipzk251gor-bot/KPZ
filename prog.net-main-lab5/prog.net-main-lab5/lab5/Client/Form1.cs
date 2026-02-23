@@ -7,12 +7,14 @@ namespace Client
 {
     public partial class Form1 : Form
     {
+        // Принцип SoC: логіка підключення винесена в окремий клас ChatServerConnector
         readonly ChatServerConnector _connector = new ChatServerConnector();
 
         public Form1()
         {
             InitializeComponent();
 
+            // Event-Driven Programming: підписка на події сервера
             _connector.MessageReceived += OnMessage;
             _connector.UsersUpdated += OnUsers;
             _connector.StatusChanged += s => BeginInvoke(new Action(() => lblStatus.Text = s));
@@ -20,6 +22,7 @@ namespace Client
             UpdateUi(false);
         }
 
+        // Принцип KISS: окремий простий метод для керування станом інтерфейсу
         void UpdateUi(bool connected)
         {
             txtName.Enabled = !connected;
@@ -84,6 +87,7 @@ namespace Client
 
         void OnUsers(System.Collections.Generic.IReadOnlyList<ChatUserInfo> users)
         {
+            // Safe UI Threading: використання BeginInvoke для роботи з UI з іншого потоку
             BeginInvoke(new Action(() =>
             {
                 var selectedId = (lstUsers.SelectedItem as ChatUserInfo)?.Id;
@@ -146,11 +150,13 @@ namespace Client
             {
                 _connector.Dispose();
             }
-            catch
+            catch (Exception ex)
             {
+                // ВИПРАВЛЕНО (Issue #2): Додано обробку помилки замість порожнього блоку
+                Console.WriteLine($"Error during disposal: {ex.Message}");
             }
 
             base.OnFormClosing(e);
         }
     }
-}
+}git checkout -b fix-issue-2
