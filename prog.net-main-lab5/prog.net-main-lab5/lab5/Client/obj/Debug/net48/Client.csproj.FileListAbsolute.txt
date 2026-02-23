@@ -1,0 +1,16 @@
+C:\Users\fambi\OneDrive\Desktop\DotNetLab5\Client\bin\Debug\net48\Client.exe.config
+C:\Users\fambi\OneDrive\Desktop\DotNetLab5\Client\bin\Debug\net48\Client.exe
+C:\Users\fambi\OneDrive\Desktop\DotNetLab5\Client\bin\Debug\net48\Client.pdb
+C:\Users\fambi\OneDrive\Desktop\DotNetLab5\Client\bin\Debug\net48\ChatLibrary.dll
+C:\Users\fambi\OneDrive\Desktop\DotNetLab5\Client\bin\Debug\net48\ChatLibrary.pdb
+C:\Users\fambi\OneDrive\Desktop\DotNetLab5\Client\obj\Debug\net48\Client.csproj.AssemblyReference.cache
+C:\Users\fambi\OneDrive\Desktop\DotNetLab5\Client\obj\Debug\net48\Client.Form1.resources
+C:\Users\fambi\OneDrive\Desktop\DotNetLab5\Client\obj\Debug\net48\Client.Properties.Resources.resources
+C:\Users\fambi\OneDrive\Desktop\DotNetLab5\Client\obj\Debug\net48\Client.csproj.GenerateResource.cache
+C:\Users\fambi\OneDrive\Desktop\DotNetLab5\Client\obj\Debug\net48\Client.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\fambi\OneDrive\Desktop\DotNetLab5\Client\obj\Debug\net48\Client.AssemblyInfoInputs.cache
+C:\Users\fambi\OneDrive\Desktop\DotNetLab5\Client\obj\Debug\net48\Client.AssemblyInfo.cs
+C:\Users\fambi\OneDrive\Desktop\DotNetLab5\Client\obj\Debug\net48\Client.csproj.CoreCompileInputs.cache
+C:\Users\fambi\OneDrive\Desktop\DotNetLab5\Client\obj\Debug\net48\Client.csproj.Up2Date
+C:\Users\fambi\OneDrive\Desktop\DotNetLab5\Client\obj\Debug\net48\Client.exe
+C:\Users\fambi\OneDrive\Desktop\DotNetLab5\Client\obj\Debug\net48\Client.pdb

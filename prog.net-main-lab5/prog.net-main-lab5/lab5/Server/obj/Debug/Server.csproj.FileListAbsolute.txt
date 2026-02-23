@@ -1,0 +1,10 @@
+C:\Users\fambi\OneDrive\Desktop\DotNetLab5\Server\bin\Debug\Server.exe.config
+C:\Users\fambi\OneDrive\Desktop\DotNetLab5\Server\bin\Debug\Server.exe
+C:\Users\fambi\OneDrive\Desktop\DotNetLab5\Server\bin\Debug\Server.pdb
+C:\Users\fambi\OneDrive\Desktop\DotNetLab5\Server\bin\Debug\ChatLibrary.dll
+C:\Users\fambi\OneDrive\Desktop\DotNetLab5\Server\bin\Debug\ChatLibrary.pdb
+C:\Users\fambi\OneDrive\Desktop\DotNetLab5\Server\obj\Debug\Server.csproj.AssemblyReference.cache
+C:\Users\fambi\OneDrive\Desktop\DotNetLab5\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
+C:\Users\fambi\OneDrive\Desktop\DotNetLab5\Server\obj\Debug\Server.csproj.Up2Date
+C:\Users\fambi\OneDrive\Desktop\DotNetLab5\Server\obj\Debug\Server.exe
+C:\Users\fambi\OneDrive\Desktop\DotNetLab5\Server\obj\Debug\Server.pdb

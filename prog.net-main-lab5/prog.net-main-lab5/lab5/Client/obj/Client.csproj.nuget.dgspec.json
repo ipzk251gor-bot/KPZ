@@ -1,0 +1,83 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\fambi\\OneDrive\\Desktop\\DotNetLab5\\Client\\Client.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\fambi\\OneDrive\\Desktop\\DotNetLab5\\ChatLibrary\\ChatLibrary.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\fambi\\OneDrive\\Desktop\\DotNetLab5\\ChatLibrary\\ChatLibrary.csproj",
+        "projectName": "ChatLibrary",
+        "projectPath": "C:\\Users\\fambi\\OneDrive\\Desktop\\DotNetLab5\\ChatLibrary\\ChatLibrary.csproj",
+        "UsingMicrosoftNETSdk": false,
+        "frameworks": {
+          "net48": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net48": {}
+      }
+    },
+    "C:\\Users\\fambi\\OneDrive\\Desktop\\DotNetLab5\\Client\\Client.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\fambi\\OneDrive\\Desktop\\DotNetLab5\\Client\\Client.csproj",
+        "projectName": "Client",
+        "projectPath": "C:\\Users\\fambi\\OneDrive\\Desktop\\DotNetLab5\\Client\\Client.csproj",
+        "packagesPath": "C:\\Users\\fambi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\fambi\\OneDrive\\Desktop\\DotNetLab5\\Client\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\fambi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net48"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net48": {
+            "targetAlias": "net48",
+            "projectReferences": {
+              "C:\\Users\\fambi\\OneDrive\\Desktop\\DotNetLab5\\ChatLibrary\\ChatLibrary.csproj": {
+                "projectPath": "C:\\Users\\fambi\\OneDrive\\Desktop\\DotNetLab5\\ChatLibrary\\ChatLibrary.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net48": {
+          "targetAlias": "net48",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

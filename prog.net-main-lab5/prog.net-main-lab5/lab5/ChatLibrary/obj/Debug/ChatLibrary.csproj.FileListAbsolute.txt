@@ -1,0 +1,6 @@
+C:\Users\fambi\OneDrive\Desktop\DotNetLab5\ChatLibrary\bin\Debug\ChatLibrary.dll
+C:\Users\fambi\OneDrive\Desktop\DotNetLab5\ChatLibrary\bin\Debug\ChatLibrary.pdb
+C:\Users\fambi\OneDrive\Desktop\DotNetLab5\ChatLibrary\obj\Debug\ChatLibrary.csproj.AssemblyReference.cache
+C:\Users\fambi\OneDrive\Desktop\DotNetLab5\ChatLibrary\obj\Debug\ChatLibrary.csproj.CoreCompileInputs.cache
+C:\Users\fambi\OneDrive\Desktop\DotNetLab5\ChatLibrary\obj\Debug\ChatLibrary.dll
+C:\Users\fambi\OneDrive\Desktop\DotNetLab5\ChatLibrary\obj\Debug\ChatLibrary.pdb
